@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "local-scanner": {
+      "command": "node",
+      "args": ["/Users/brett/Documents/Cline/MCP/local-scanner-mcp/build/index.js"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

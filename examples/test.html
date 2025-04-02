@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Scanner MCP Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Scanner MCP Test Page</h1>
+    
+    <div class="container">
+        <h2>Console Log Test</h2>
+        <button id="log-info">Log Info</button>
+        <button id="log-warn">Log Warning</button>
+        <button id="log-error">Log Error</button>
+    </div>
+
+    <div class="container">
+        <h2>Error Test</h2>
+        <button id="throw-error">Throw Error</button>
+        <p class="error" id="error-message">An error occurred!</p>
+    </div>
+
+    <div class="container">
+        <h2>Form Test</h2>
+        <form id="test-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Console log test
+        document.getElementById('log-info').addEventListener('click', () => {
+            console.log('This is an info message');
+        });
+
+        document.getElementById('log-warn').addEventListener('click', () => {
+            console.warn('This is a warning message');
+        });
+
+        document.getElementById('log-error').addEventListener('click', () => {
+            console.error('This is an error message');
+        });
+
+        // Error test
+        document.getElementById('throw-error').addEventListener('click', () => {
+            try {
+                // Intentionally cause an error
+                const obj = null;
+                obj.nonExistentMethod();
+            } catch (error) {
+                document.getElementById('error-message').style.display = 'block';
+                console.error('Caught error:', error);
+            }
+        });
+
+        // Form test
+        document.getElementById('test-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            console.log(`Form submitted with username: ${username}`);
+            alert(`Form submitted successfully!`);
+        });
+    </script>
+</body>
+</html>

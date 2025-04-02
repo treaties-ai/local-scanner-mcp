@@ -1,0 +1,51 @@
+/* This is a test CSS file with some intentional issues for linting */
+
+/* Invalid hex color */
+.invalid-color {
+  color: #XYZ;
+}
+
+/* Duplicate property */
+.duplicate-property {
+  margin: 10px;
+  padding: 20px;
+  margin: 15px;
+}
+
+/* Empty block */
+.empty-block {
+}
+
+/* Unknown unit */
+.unknown-unit {
+  width: 50pixels;
+}
+
+/* Missing semicolon */
+.missing-semicolon {
+  color: red;
+  font-size: 16px;
+  padding: 10px;
+}
+
+/* Unknown pseudo-class */
+a:unknown-pseudo-class {
+  color: blue;
+}
+
+/* Duplicate selectors */
+.duplicate-selector {
+  color: green;
+}
+.duplicate-selector {
+  font-size: 14px;
+}
+
+/* Valid styles */
+.valid-styles {
+  color: #123456;
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+}

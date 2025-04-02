@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<!-- Missing lang attribute -->
+<head>
+  <title>Test Invalid HTML</title>
+  <!-- Missing charset -->
+  <!-- Obsolete tag -->
+  <center>Centered text</center>
+</head>
+<body>
+  <!-- Missing alt attribute -->
+  <img src="missing-image.jpg">
+  
+  <!-- Unclosed tag -->
+  <div>
+    <p>This paragraph is not closed
+  </div>
+  
+  <!-- Mismatched tags -->
+  <h1>This is a heading<h2>
+  
+  <!-- Duplicate ID -->
+  <div id="duplicate">First element</div>
+  <div id="duplicate">Second element</div>
+  
+  <!-- Invalid attribute -->
+  <a href="#" badattribute="value">Invalid attribute</a>
+  
+  <!-- Missing required attribute -->
+  <input type="text">
+  
+  <!-- Deprecated tag -->
+  <font color="red">Red text</font>
+  
+  <!-- Nested form (not allowed) -->
+  <form action="/submit">
+    <form action="/inner">
+      <input type="text">
+    </form>
+  </form>
+  
+  <!-- Missing closing tags -->
+  <ul>
+    <li>Item 1
+    <li>Item 2
+    <li>Item 3
+  </ul>
+  
+  <!-- Invalid nesting -->
+  <p><div>Invalid nesting</div></p>
+  
+  <!-- Valid HTML for comparison -->
+  <section>
+    <h2>Valid Section</h2>
+    <p>This is a valid paragraph with proper nesting and closing tags.</p>
+    <img src="valid-image.jpg" alt="Valid image with alt text">
+  </section>
+</body>
+</html>
