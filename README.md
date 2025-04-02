@@ -2,6 +2,17 @@
 
 A Model Context Protocol (MCP) server for scanning local code and localhost URLs. This server provides tools for validating code, capturing screenshots, and analyzing web pages running on localhost.
 
+## Overview
+
+The Local Scanner MCP Server extends AI assistants' capabilities to interact with locally running web applications and code files. It bridges the gap between AI and local development environments, enabling AI assistants to:
+
+- Test and debug locally running web applications
+- Capture screenshots for visual verification
+- Lint code files to ensure quality and standards compliance
+- Validate HTML for accessibility and standards compliance
+
+This server is particularly useful for developers working with AI assistants like Cline (VSCode) or Cascade (WindSurf) who want to leverage AI capabilities for local development tasks.
+
 ## Features
 
 The server provides the following tools:
@@ -94,7 +105,11 @@ Or for a URL:
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository:
+   ```
+   git clone https://github.com/treaties-ai/local-scanner-mcp.git
+   cd local-scanner-mcp
+   ```
 2. Install dependencies:
    ```
    npm install
@@ -110,19 +125,43 @@ Or for a URL:
 
 ## Usage with MCP Clients
 
-This server implements the Model Context Protocol (MCP) and can be used with any MCP client. To configure it in an MCP client, add the following to your MCP settings:
+This server implements the Model Context Protocol (MCP) and can be used with any MCP client. 
+
+### For VSCode/Cline
+
+Edit the MCP settings file at `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`:
 
 ```json
 {
   "mcpServers": {
     "local-scanner": {
       "command": "node",
-      "args": ["/path/to/local-scanner-mcp/build/index.js"],
-      "env": {}
+      "args": ["/Users/your_username/Documents/Cline/MCP/local-scanner-mcp/build/index.js"],
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }
 ```
+
+### For WindSurf/Cascade
+
+Edit the WindSurf configuration file at `~/Library/Application Support/WindSurf/windsurf_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "local-scanner": {
+      "command": "node",
+      "args": ["/Users/your_username/Documents/WindSurf/MCP/local-scanner-mcp/build/index.js"],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+Replace `your_username` with your actual username in both configurations.
 
 ## Development
 
